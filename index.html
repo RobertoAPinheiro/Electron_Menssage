@@ -14,7 +14,6 @@
     <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-database.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -61,56 +60,64 @@
     </div>
 
     <!-- The Modal -->
-    <div id="myModal" class="modal">
-
+    <div id="modal_registration" class="modal">
         <!-- Modal content -->
         <div class="modal-content">
             <div class="modal-header">
                 <h4 style="color:darkBlue;"> Welcome!!!</h4>
             </div>
             <div class="modal-body">
-                <form role="form">
+                <form role="form" id="form_register">
+                    <div class="left">
+                        <label for="first_name">
+                            Username
+                        </label>
+                        <input type="text" class="form-control" id="user_first_name" placeholder="Don't use spaces o special caracters" v-model="user_register.username">
+                    </div>
+                    <div class="alertIcon" v-if="exists">
+                        <i class="fas fa-exclamation-circle"></i>
+                    </div>
+                    <div class="clear">Don't use spaces o special caracter</div>
+                    <div class="clear">&nbsp;</div>
                     <div class="left">
                         <label for="first_name">
                             First Name
                         </label>
-                        <input type="text" class="form-control" id="first_name" placeholder="First name">
+                        <input type="text" class="form-control" id="user_first_name" placeholder="First name" v-model="user_register.first_name">
                     </div>
                     <div class="left" id="lst_name">
                         <label for="last_name">
                             Last Name
                         </label>
-                        <input type="text" class="form-control" id="last_name" placeholder="Last name">
+                        <input type="text" class="form-control" id="user_last_name" placeholder="Last name" v-model="user_register.last_name">
                     </div>
                     <div class="clear">&nbsp;</div>
                     <div class="form-group">
                         <label for="psw">
-                             Date of Bithday
-                            </label>
-                            <input type="text" class="form-control date-mask" id="example1" placeholder="dd/mm/aaaa">
+                            Date of Birthday
+                        </label>
+                        <input type="date" class="form-control date-mask" id="user_birthday" placeholder="dd/mm/aaaa" v-model="user_register.birthday">
                     </div>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" value="" checked>Remember me</label>
+                    <div class="form-group">
+                        <label for="psw">
+                            Phone Number
+                        </label>
+                        <input type="text" class="form-control" id="user_phone" placeholder="(11) 1234-5678" v-model="user_register.phone">
                     </div>
-                    <button type="submit" class="btn btn-default btn-success btn-block">
-                        <span class="glyphicon glyphicon-off"></span> Login</button>
+                    <button type="submit" class="btn btn-default btn-success btn-block" @click="finishRegistration()" id="btn_finish_registration">
+                        Finish Registration
+                    </button>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-default btn-default pull-left" data-dismiss="modal">
-                    <span class="glyphicon glyphicon-remove"></span> Cancel</button>
-                <p>Not a member?
-                    <a href="#">Sign Up</a>
-                </p>
-                <p>Forgot
-                    <a href="#">Password?</a>
-                </p>
+
+
             </div>
         </div>
 
     </div>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script src="index-renderer.js"></script>
 
 </html>
