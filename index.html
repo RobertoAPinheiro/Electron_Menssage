@@ -1,13 +1,116 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
-  </head>
-  <body>
+    <title>Diálogo</title>
 
-    <script>
+    <link rel="stylesheet" href='node_modules/bootstrap/dist/css/bootstrap.min.css'>
+    <link rel="stylesheet" href='./css/index.css'>
+    <link rel="stylesheet" href="css/photon.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.4/css/all.css">
 
-    </script>
-  </body>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-database.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <div class="window">
+        <div class="window-content">
+            <div class="pane-group">
+                <ul class="list-group">
+                    <li class="list-group-header">
+                        <div class="toolbar-actions">
+                            <button id="btn_add_user">
+                                <span class="fas fa-user-plus"></span>
+                            </button>
+                            <button id="btn_sign_out">
+                                <span class="fas fa-sign-out-alt"></span>
+                            </button>
+                        </div>
+                        <input class="form-control" type="text" placeholder="Search for someone">
+                    </li>
+                    <li class="list-group-item">
+                        <img class="img-circle media-object pull-left" src="./assets/image/avatar.jpg" width="32" height="32">
+                        <div class="media-body">
+                            <strong>List item title</strong>
+                            <p>Lorem ipsum dolor sit amet.</p>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <img class="img-circle media-object pull-left" src="./assets/image/avatar.jpg" width="32" height="32">
+                        <div class="media-body">
+                            <strong>List item title</strong>
+                            <p>Lorem ipsum dolor sit amet.</p>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <img class="img-circle media-object pull-left" src="./assets/image/avatar.jpg" width="32" height="32">
+                        <div class="media-body">
+                            <strong>List item title</strong>
+                            <p>Lorem ipsum dolor sit amet.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 style="color:darkBlue;"> Welcome!!!</h4>
+            </div>
+            <div class="modal-body">
+                <form role="form">
+                    <div class="left">
+                        <label for="first_name">
+                            First Name
+                        </label>
+                        <input type="text" class="form-control" id="first_name" placeholder="First name">
+                    </div>
+                    <div class="left" id="lst_name">
+                        <label for="last_name">
+                            Last Name
+                        </label>
+                        <input type="text" class="form-control" id="last_name" placeholder="Last name">
+                    </div>
+                    <div class="clear">&nbsp;</div>
+                    <div class="form-group">
+                        <label for="psw">
+                             Date of Bithday
+                            </label>
+                            <input type="text" class="form-control date-mask" id="example1" placeholder="dd/mm/aaaa">
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value="" checked>Remember me</label>
+                    </div>
+                    <button type="submit" class="btn btn-default btn-success btn-block">
+                        <span class="glyphicon glyphicon-off"></span> Login</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-default btn-default pull-left" data-dismiss="modal">
+                    <span class="glyphicon glyphicon-remove"></span> Cancel</button>
+                <p>Not a member?
+                    <a href="#">Sign Up</a>
+                </p>
+                <p>Forgot
+                    <a href="#">Password?</a>
+                </p>
+            </div>
+        </div>
+
+    </div>
+</body>
+<script src="index-renderer.js"></script>
+
 </html>
