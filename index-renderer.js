@@ -56,22 +56,39 @@ var reg_modal = new Vue({
     },
     methods: {
         finishRegistration: function () {
-            writeUserData(userId, userEmail, this.user_register.first_name, this.user_register.last_name, this.user_register.birthday, this.user_register.phone);
+            console.log(this.first_name);
+            // var usernameExists = checkUserName(this.username);
+            // if (usernameExists == null){
+            //     writeUsername(this.username);
+            //     writeUserData(userId, userEmail, this.username, this.user_register.first_name, this.user_register.last_name, this.user_register.birthday, this.user_register.phone);
+            // }
         }
     }
 })
 
-function writeUserData(userId, userEmail, first_name, last_name, birthday, phone) {
+function checkUserName(username){
+    firebase.database().ref('usersname/' + username).once('value').then(function(snapshot) {
+        var id = (snapshot.val() && snapshot.val().id);
+        return id;
+      });
+}
+
+function writeUsername(username){
+    firebase.database().ref('usersname/' + username).set({
+        id: userId,
+    });
+}
+
+function writeUserData(userId, userEmail, username, first_name, last_name, birthday, phone) {
     firebase.database().ref('users/' + userId).set({
         id: userId,
         email: userEmail,
+        username: username,        
         first_name: first_name,
         last_name: last_name,
         birthday: birthday,
         phone: phone
     });
-
-    firebase.database().ref('find_users_email/' + userEmail).set({
-        id: userId
-    });
 }
+
+//PRECISO APENAS IDENTIFICAR O PQ DE ESTAR RETORNANDO "UNDEFINED" DOS CAMPOS DO MODAL

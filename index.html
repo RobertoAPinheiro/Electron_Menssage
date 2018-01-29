@@ -69,15 +69,15 @@
             <div class="modal-body">
                 <form role="form" id="form_register">
                     <div class="left">
-                        <label for="first_name">
+                        <label for="user_name">
                             Username
                         </label>
-                        <input type="text" class="form-control" id="user_first_name" placeholder="Don't use spaces o special caracters" v-model="user_register.username">
+                        <input type="text" class="form-control" id="user_name" placeholder="Don't use spaces or special caracters" v-model="user_register.username">
                     </div>
                     <div class="alertIcon" v-if="exists">
                         <i class="fas fa-exclamation-circle"></i>
                     </div>
-                    <div class="clear">Don't use spaces o special caracter</div>
+                    <div class="clear">Don't use spaces or special caracter</div>
                     <div class="clear">&nbsp;</div>
                     <div class="left">
                         <label for="first_name">
